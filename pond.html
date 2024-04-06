@@ -24,7 +24,8 @@
       displayTheDucks();
 
       async function getAll() {
-        let response = await fetch(host + "/ducks");
+        const headers = {'Authorizaton' : 'Bearer ${configuration.token()}'};
+        let response = await fetch(host + "/ducks", {headers});
         let result = await response.json();
         return result;
       }
